@@ -7,8 +7,6 @@
 # --publish 2812:2812 -e MONIT_ALLOW=172.0.0.0/8 \
 # --name HomeMonit -d --restart=always confusedhacker/monit
 
-ARG MONIT_VERSION=5.25.3
-
 # SERVICE_VOLUME -- /opt/tools
 # MONIT_HOME  -- [/opt/monit] 
 # MONIT_PORT  -- [2812] which port to listen on
@@ -21,7 +19,7 @@ MAINTAINER Chan Wilson <docker@confusedhacker.com>
 RUN apk add --update bash libressl curl fping libcap
 
 # Compile and install monit and confd
-ENV  \
+ENV MONIT_VERSION=5.25.3 \
     MONIT_HOME=/opt/monit \
     MONIT_URL=https://mmonit.com/monit/dist \
     SERVICE_VOLUME=/opt/tools \
