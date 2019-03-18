@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
 if [ -d "${SERVICE_VOLUME}" ]; then
-	while [ ! -f ${SERVICE_VOLUME}/.synced ]; do
-		echo `date` $ME - "[ Waiting ${SERVICE_VOLUME} to be synced ... ]"
-		sleep 5
-	done
+# 201903 caw: unclear what lineage / use case this is for (from upstream work), commenting out for now
+#	while [ ! -f ${SERVICE_VOLUME}/.synced ]; do
+#		echo `date` $ME - "[ Waiting ${SERVICE_VOLUME} to be synced ... ]"
+#		sleep 5
+#	done
 
 	cat << EOF > ${MONIT_HOME}/etc/monitrc
 include ${SERVICE_VOLUME}/monit/conf.d/*
