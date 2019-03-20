@@ -37,5 +37,5 @@ RUN apk add --update gcc musl-dev make libressl-dev file zlib-dev && \
     rm -rf /var/cache/apk/* /opt/src 
 ADD root /
 RUN chmod +x ${MONIT_HOME}/bin/monit-start.sh
-
+EXPOSE 2812
 ENTRYPOINT ["/bin/bash","-c","${MONIT_HOME}/bin/monit-start.sh"]
